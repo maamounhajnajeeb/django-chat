@@ -8,8 +8,8 @@ User = get_user_model()
 
 class Message(models.Model):
     author = models.ForeignKey(
-        User, related_name="author_messages", on_delete=models.CASCADE)
-    content = models.TextField()
+        User, on_delete=models.CASCADE, null=False, related_name="author_messages")
+    content = models.TextField(null=False)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
